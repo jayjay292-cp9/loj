@@ -1,44 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Epic Games V-Bucks Redemption</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Redeem Your V-Bucks Code | Epic Games</title>
   <style>
     body {
-      background-color: #121212;
-      color: #fff;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 80px 20px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #0c0c0d;
+      color: #ffffff;
+      margin: 0;
+      padding: 0;
     }
-    .box {
-      background: #1e1e1e;
-      border-radius: 12px;
+
+    .container {
+      max-width: 500px;
+      margin: 100px auto;
       padding: 40px;
-      max-width: 600px;
-      margin: auto;
-      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+      background-color: #1e1e20;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.6);
+      text-align: center;
     }
-    .highlight {
-      color: #00ccff;
+
+    h1 {
+      color: #00adee;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"] {
+      width: 90%;
+      padding: 12px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px 24px;
+      font-size: 16px;
+      background-color: #00adee;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #008bb9;
+    }
+
+    #loading {
+      display: none;
+      margin-top: 20px;
+    }
+
+    #error-msg {
+      display: none;
+      margin-top: 20px;
+      color: #ff4444;
       font-weight: bold;
-    }
-    .footer {
-      margin-top: 40px;
-      font-size: 0.8rem;
-      color: #888;
     }
   </style>
 </head>
 <body>
-  <div class="box">
-    <h1>Access Denied</h1>
-    <p>This V-Bucks code is locked to Epic Games account:</p>
-    <h2 class="highlight">JayJay527</h2>
-    <p>Due to Epic’s <strong>buyer-customer confidentiality policy</strong>, this redemption page is restricted to the original buyer.</p>
-    <div class="footer">
-      &copy; 2025 Epic Games, Inc. |
-    </div>
+  <div class="container">
+    <h1>Epic Games - V-Bucks Redemption</h1>
+    <p>Enter your redemption code below:</p>
+    <input type="text" id="vbcode" placeholder="XXXX-XXXX-XXXX" />
+    <br />
+    <button onclick="redeemCode()">Redeem</button>
+
+    <div id="loading">🔄 Verifying your code...</div>
+    <div id="error-msg">❌ This redemption code is linked to JayJay527. Access denied due to buyer-customer confidentiality.</div>
   </div>
+
+  <script>
+    function redeemCode() {
+      document.getElementById("loading").style.display = "block";
+      document.getElementById("error-msg").style.display = "none";
+
+      setTimeout(() => {
+        document.getElementById("loading").style.display = "none";
+        document.getElementById("error-msg").style.display = "block";
+      }, 2500);
+    }
+  </script>
 </body>
 </html>
